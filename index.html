@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kairos ご提案 | Shopify ECサイト構築・ページ制作パートナーシップ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#0F1A2E;
+    --navy:#1B2A4A;
+    --cream:#F4EFE6;
+    --amber:#E8803A;
+    --indigo:#4C6EF5;
+    --green:#2E9E6E;
+    --ink:#20242E;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Noto Sans JP',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.85;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.eyebrow{
+    font-family:'Space Grotesk','Noto Sans JP',sans-serif;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  .eyebrow{
+    display:inline-block;
+    font-size:.78rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--amber);
+    font-weight:600;
+    margin-bottom:14px;
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(ellipse 80% 60% at 85% -10%, rgba(76,110,245,.35), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 10% 110%, rgba(232,128,58,.25), transparent 60%),
+      linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 55%, #243a66 100%);
+    color:var(--cream);
+    padding:120px 0 150px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(244,239,230,.05) 0 1px, transparent 1px 64px);
+    pointer-events:none;
+  }
+  .shelf-row{
+    position:absolute;
+    left:0; right:0;
+    height:1px;
+    background:linear-gradient(90deg, transparent, rgba(244,239,230,.18), transparent);
+  }
+  .shelf-row.r1{top:30%;}
+  .shelf-row.r2{top:58%;}
+  .shelf-row.r3{top:82%;}
+
+  .hero-inner{position:relative;z-index:2;}
+  .hero h1{
+    font-size:clamp(2.1rem, 5.4vw, 3.6rem);
+    font-weight:700;
+    letter-spacing:-.01em;
+    line-height:1.4;
+    margin-bottom:28px;
+    max-width:780px;
+  }
+  .hero h1 span{
+    color:var(--amber);
+  }
+  .hero p.lead{
+    font-size:1.05rem;
+    max-width:560px;
+    color:rgba(244,239,230,.82);
+    margin-bottom:40px;
+  }
+  .hero-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:rgba(244,239,230,.08);
+    border:1px solid rgba(244,239,230,.25);
+    padding:10px 20px;
+    border-radius:100px;
+    font-size:.85rem;
+    color:var(--cream);
+  }
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(46,158,110,.25);}
+
+  .liquid-shape{
+    position:absolute;
+    right:-8%;
+    bottom:-20%;
+    width:460px;
+    height:460px;
+    background:conic-gradient(from 120deg, var(--indigo), var(--amber), var(--green), var(--indigo));
+    filter:blur(2px);
+    opacity:.18;
+    border-radius:42% 58% 65% 35% / 45% 40% 60% 55%;
+    animation:morph 14s ease-in-out infinite;
+  }
+  @keyframes morph{
+    0%,100%{border-radius:42% 58% 65% 35% / 45% 40% 60% 55%;}
+    50%{border-radius:60% 40% 35% 65% / 55% 65% 35% 45%;}
+  }
+
+  /* ===== SECTION GENERIC ===== */
+  section{
+    padding:100px 0;
+    position:relative;
+  }
+  .section-head{
+    max-width:680px;
+    margin-bottom:56px;
+  }
+  .section-head h2{
+    font-size:clamp(1.6rem, 3.6vw, 2.3rem);
+    font-weight:700;
+    color:var(--navy);
+    line-height:1.5;
+  }
+  .section-head p{
+    margin-top:16px;
+    color:#4a5162;
+    font-size:.98rem;
+  }
+
+  /* ===== UNDERSTANDING ===== */
+  .understand{
+    background:var(--navy);
+    color:var(--cream);
+  }
+  .understand .section-head h2{color:var(--cream);}
+  .understand .section-head p{color:rgba(244,239,230,.75);}
+  .understand-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+  .u-card{
+    background:rgba(244,239,230,.06);
+    border:1px solid rgba(244,239,230,.14);
+    border-radius:14px;
+    padding:30px 26px;
+  }
+  .u-card .num{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:.85rem;
+    color:var(--amber);
+    letter-spacing:.1em;
+    margin-bottom:14px;
+    display:block;
+  }
+  .u-card h3{
+    font-size:1.05rem;
+    margin-bottom:12px;
+    color:var(--cream);
+    font-weight:600;
+  }
+  .u-card p{
+    font-size:.9rem;
+    color:rgba(244,239,230,.72);
+  }
+
+  /* ===== VALUE CARDS ===== */
+  .value-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    gap:22px;
+  }
+  .v-card{
+    background:#fff;
+    border:1px solid #E3DCCB;
+    border-radius:16px;
+    padding:34px 28px;
+    position:relative;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .v-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 16px 36px -14px rgba(27,42,74,.28);
+  }
+  .v-icon{
+    width:46px;height:46px;
+    border-radius:12px;
+    margin-bottom:20px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    color:#fff;
+    font-size:1.1rem;
+  }
+  .v-card h3{
+    font-size:1.08rem;
+    color:var(--navy);
+    margin-bottom:12px;
+    font-weight:700;
+  }
+  .v-card p{
+    font-size:.9rem;
+    color:#565c6b;
+  }
+  .ic1{background:linear-gradient(135deg,var(--indigo),#7b93f7);}
+  .ic2{background:linear-gradient(135deg,var(--amber),#f4a265);}
+  .ic3{background:linear-gradient(135deg,var(--green),#5cc495);}
+  .ic4{background:linear-gradient(135deg,var(--navy),#3a5590);}
+  .ic5{background:linear-gradient(135deg,#8b5cf6,#b794f6);}
+
+  /* ===== FLOW ===== */
+  .flow{
+    background:
+      linear-gradient(180deg, var(--cream) 0%, #ECE4D4 100%);
+  }
+  .flow-line{
+    position:relative;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
+    margin-top:20px;
+  }
+  .flow-line::before{
+    content:"";
+    position:absolute;
+    top:26px;
+    left:5%;
+    right:5%;
+    height:2px;
+    background:repeating-linear-gradient(90deg, var(--amber) 0 10px, transparent 10px 18px);
+    z-index:0;
+  }
+  .f-step{
+    position:relative;
+    z-index:1;
+    padding:0 14px;
+    text-align:left;
+  }
+  .f-step .ball{
+    width:52px;height:52px;
+    border-radius:50%;
+    background:var(--navy);
+    color:var(--cream);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    margin-bottom:22px;
+    border:3px solid var(--cream);
+    box-shadow:0 0 0 2px var(--navy);
+  }
+  .f-step h3{
+    font-size:1rem;
+    color:var(--navy);
+    margin-bottom:10px;
+    font-weight:700;
+  }
+  .f-step p{
+    font-size:.86rem;
+    color:#5a5f6e;
+  }
+
+  /* ===== CLOSING ===== */
+  .closing{
+    background:linear-gradient(135deg, var(--navy-deep), var(--navy) 60%, #2c3f6e);
+    color:var(--cream);
+    text-align:center;
+    padding:110px 24px;
+  }
+  .closing h2{
+    font-size:clamp(1.7rem,4vw,2.5rem);
+    margin-bottom:22px;
+    font-weight:700;
+  }
+  .closing p{
+    max-width:560px;
+    margin:0 auto 42px;
+    color:rgba(244,239,230,.8);
+  }
+  .cta-btn{
+    display:inline-block;
+    background:var(--amber);
+    color:#1B140A;
+    font-weight:700;
+    padding:18px 48px;
+    border-radius:100px;
+    text-decoration:none;
+    font-size:1.02rem;
+    letter-spacing:.02em;
+    box-shadow:0 12px 30px -8px rgba(232,128,58,.6);
+    transition:transform .2s ease;
+  }
+  .cta-btn:hover{transform:translateY(-3px);}
+  .closing-sub{
+    margin-top:34px;
+    font-size:.82rem;
+    color:rgba(244,239,230,.55);
+  }
+
+  footer{
+    background:var(--navy-deep);
+    color:rgba(244,239,230,.45);
+    text-align:center;
+    padding:26px;
+    font-size:.78rem;
+  }
+
+  @media(max-width:860px){
+    .understand-grid{grid-template-columns:1fr;}
+    .flow-line{grid-template-columns:1fr;gap:34px;}
+    .flow-line::before{display:none;}
+    .hero{padding:90px 0 110px;}
+    section{padding:70px 0;}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="shelf-row r1"></div>
+  <div class="shelf-row r2"></div>
+  <div class="shelf-row r3"></div>
+  <div class="liquid-shape"></div>
+  <div class="wrap hero-inner">
+    <span class="hero-tag"><span class="dot"></span>Kairos からのご提案</span>
+    <h1 style="margin-top:28px;">コードは、<span>棚</span>になる。<br>流れは、<span>売上</span>になる。</h1>
+    <p class="lead">
+      Shopifyのテンプレート言語「Liquid」のように、情報は流れ、整えられ、
+      ひとつの売場へと形を変えていきます。pic_ec様のEC事業を、
+      制作と運用の両面から継続的に支えるパートナーとして、Kairosよりご提案いたします。
+    </p>
+  </div>
+</section>
+
+<section class="understand">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Understanding</span>
+      <h2>「単発では終わらせたくない」<br>その言葉の裏にある、本当の課題。</h2>
+      <p>
+        募集内容を拝見し、御社が求めているのは単なる制作代行ではなく、
+        案件ごとに柔軟に相談でき、長く併走できる"開発パートナー"だと理解しています。
+      </p>
+    </div>
+    <div class="understand-grid">
+      <div class="u-card">
+        <span class="num">ISSUE / 01</span>
+        <h3>業務範囲が流動的</h3>
+        <p>トップページからLP、テーマカスタマイズ、商品登録まで。案件ごとに求められるスキルセットが変わる前提での体制が必要。</p>
+      </div>
+      <div class="u-card">
+        <span class="num">ISSUE / 02</span>
+        <h3>継続前提のスピード感</h3>
+        <p>単発の受発注ではなく、都度のやり取りコストを下げながら、スピーディに依頼できる関係構築が求められている。</p>
+      </div>
+      <div class="u-card">
+        <span class="num">ISSUE / 03</span>
+        <h3>売上に直結する実装力</h3>
+        <p>見た目の制作だけでなく、Liquid・HTML/CSSでの実装とスマホ表示最適化まで含めた「売れるページ」への理解が必要。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What Kairos Offers</span>
+      <h2>Kairosがご提供できる価値</h2>
+      <p>制作だけでなく、運用・改善まで見据えた体制で、Shopifyストアの成長に伴走します。</p>
+    </div>
+    <div class="value-grid">
+      <div class="v-card">
+        <div class="v-icon ic1">01</div>
+        <h3>Shopify制作のワンストップ対応</h3>
+        <p>トップページ・商品ページ・特集ページ・LPまで、企画からコーディング、Liquidでの実装まで一貫して対応します。</p>
+      </div>
+      <div class="v-card">
+        <div class="v-icon ic2">02</div>
+        <h3>テーマカスタマイズ／新規構築</h3>
+        <p>既存テーマの改修はもちろん、ゼロからのECサイト新規構築・リニューアルにも対応可能な開発体制です。</p>
+      </div>
+      <div class="v-card">
+        <div class="v-icon ic3">03</div>
+        <h3>売上を意識したページ設計</h3>
+        <p>見た目の美しさだけでなく、導線・訴求・CVRを意識したページ構成で「売れるページ」を一緒に作ります。</p>
+      </div>
+      <div class="v-card">
+        <div class="v-icon ic4">04</div>
+        <h3>柔軟な案件単位のご相談</h3>
+        <p>すべての業務を一度に請け負うのではなく、デザイン・コーディング・運営業務など得意分野を活かした分担が可能です。</p>
+      </div>
+      <div class="v-card">
+        <div class="v-icon ic5">05</div>
+        <h3>継続パートナーシップ前提の体制</h3>
+        <p>チャットでの円滑なやり取り、繰り返し依頼を前提とした業務フローの整備で、長期的な関係構築を目指します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="flow">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How We Work</span>
+      <h2>ご相談から着手までの流れ</h2>
+      <p>まずは小さな案件から。信頼関係を築きながら、依頼範囲を広げていくご提案です。</p>
+    </div>
+    <div class="flow-line">
+      <div class="f-step">
+        <div class="ball">01</div>
+        <h3>ヒアリング</h3>
+        <p>対応してほしい業務範囲・納期・ご予算感をすり合わせます。</p>
+      </div>
+      <div class="f-step">
+        <div class="ball">02</div>
+        <h3>お見積り・ご提案</h3>
+        <p>制作難易度・作業範囲に応じて、案件ごとに料金・スケジュールをご提示します。</p>
+      </div>
+      <div class="f-step">
+        <div class="ball">03</div>
+        <h3>制作・実装</h3>
+        <p>デザイン〜Liquid実装〜スマホ表示調整まで、進捗を共有しながら進めます。</p>
+      </div>
+      <div class="f-step">
+        <div class="ball">04</div>
+        <h3>納品・継続連携</h3>
+        <p>公開後の修正対応も含め、次の案件へとスムーズに継続いただける体制を維持します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap" style="padding:0;">
+    <span class="eyebrow" style="color:var(--amber);">Next Action</span>
+    <h2>まずは、ひとつの案件から<br>ご一緒させてください。</h2>
+    <p>
+      これまでのShopify制作実績・対応可能範囲・料金目安をまとめてご連絡いたします。
+      継続的にご相談いただけるパートナーとして、Kairosをぜひご検討ください。
+    </p>
+    <a href="#" class="cta-btn">Kairosに相談・応募する</a>
+    <div class="closing-sub">ポートフォリオ／対応可能業務／料金目安を折り返しご案内いたします</div>
+  </div>
+</section>
+
+<footer>
+  © Kairos — Web制作・システム開発チーム / ご提案資料
+</footer>
+
+</body>
+</html>
